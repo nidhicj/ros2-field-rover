@@ -1,3 +1,4 @@
+import os
 import time
 import canopen
 import binascii
@@ -8,6 +9,9 @@ import numpy as np
 SERVO_SPEED:int = 70000  # counts/s
 SERVO_ACCELERATION:int = 70000 # counts/s2
 SERVO_DECELERATION:int = 70000 # counts/s2
+
+# CANopen EDS file for the ZeroErr servo drivers
+SERVO_EDS_PATH:str = os.environ.get('SERVO_EDS_PATH', 'ZeroErr Driver_V1.5.eds')
 
 
 class ServoConfig():
@@ -20,7 +24,7 @@ class ServoConfig():
         
         if node_id in node_id_list:
             print(f"Found node {node_id} !")
-            self.node = canopen.BaseNode402(node_id, '/home/escarda/zeroerr_zervos/ZeroErr Driver_V1.5.eds')
+            self.node = canopen.BaseNode402(node_id, SERVO_EDS_PATH)
             self.network.add_node(self.node)
             print(self.node.state)
         print(f"Servo {self.node_id} added to network.")

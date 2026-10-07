@@ -1,11 +1,17 @@
 
+import os
 import yaml
+
+CONFIG_PATH = os.environ.get(
+    'CRAWLER_SW_PROFILE',
+    os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'config', 'sw_profile.yml'),
+)
 
 class LoadConfig():
     def __init__(self):
         pass
     def load_config(self,mode):
-        with open('/home/escarda/crawler_ws/src/crawler_ros2/crawler_ros2/config/sw_profile.yml', 'r') as file:
+        with open(CONFIG_PATH, 'r') as file:
             self.config = yaml.safe_load(file)
             offset_fl = self.config[mode]['fl_sw']['servo']
             offset_fr = self.config[mode]['fr_sw']['servo']

@@ -29,7 +29,6 @@ class Steer_Accel(Node):
         self.btn_magnitude = msg.data.split(',')[2]
         # state_magnitude = Int32()
 
-<<<<<<< HEAD
         if (self.btn_name == 'BTN_SOUTH'):
             if (self.btn_magnitude == '1'):
                 self.get_logger().info('Brining servos to zero positions')
@@ -37,8 +36,6 @@ class Steer_Accel(Node):
                 # self.crawler_velocity_pub.publish(self.state_code)
             else:
                 self.state_code.zero_pos = False
-=======
->>>>>>> d77152980371c43b93aa3f317860679f5bf7553c
 
         if (self.btn_name == 'BTN_NORTH'):
             if (self.btn_magnitude == '0'):
@@ -52,19 +49,11 @@ class Steer_Accel(Node):
                 self.state_code.mode = 0
                 # self.crawler_velocity_pub.publish(self.state_code)
 
-<<<<<<< HEAD
         # if (self.btn_name == 'BTN_EAST'):
         #     if (self.btn_magnitude == '0'):
         #         self.get_logger().info('Crawler in Mode 2 -> container mode')
         #         self.state_code.mode = 2
         #         self.crawler_velocity_pub.publish(self.state_code)
-=======
-        if (self.btn_name == 'BTN_EAST'):
-            if (self.btn_magnitude == '0'):
-                self.get_logger().info('Crawler in Mode 2 -> container mode')
-                self.state_code.mode = 2
-                self.crawler_velocity_pub.publish(self.state_code)
->>>>>>> d77152980371c43b93aa3f317860679f5bf7553c
         if ((self.btn_name == ('ABS_RY' or 'ABS_RX')) ):
             vtg_in_digital = 32767 - int(self.btn_magnitude)
             self.state_code.digital_voltage = vtg_in_digital 
