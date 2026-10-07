@@ -47,7 +47,7 @@ It also depends on two companion ROS 2 interface packages that are **not in this
 ```bash
 # inside a ROS 2 workspace that also contains crawler_libs and crawler_srv
 cd ~/ros2_ws/src
-git clone https://github.com/nidhicj/myROBOT.git crawler_ros2
+git clone https://github.com/nidhicj/ros2-field-rover.git crawler_ros2
 pip install canopen adafruit-circuitpython-pca9685 inputs pyyaml numpy
 cd ~/ros2_ws && colcon build --packages-select crawler_ros2
 source install/setup.bash
